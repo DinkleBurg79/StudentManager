@@ -12,6 +12,7 @@ int main()
 
 	cout << s._courses.size() << endl;
 
+	// Need to fix
 	// SOMETHING WRONG WITH THIS CODE
 	//cout << s.accessCourse(1)->getName() << endl;
 	//cout << s.accessCourse(1)->accessAssignment(1)->getScore() << endl;
