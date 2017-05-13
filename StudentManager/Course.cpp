@@ -14,7 +14,6 @@ unique_ptr<Assignment>& Course::accessAssignment(int index)
 {
 	// Since vector counts from 0, decrement index value asked
 	index--;
-	// BAD CODE BECAUSE THIS MEANS UPTR WON'T BE IN VECTOR
 	return _grades[index];
 }
 

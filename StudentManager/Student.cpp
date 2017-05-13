@@ -57,7 +57,6 @@ string Student::getName() const
 unique_ptr<Course>& Student::accessCourse(int index) 
 {
 	index--;
-	// BAD CODE BECAUSE THIS MEANS UPTR WON'T BE IN VECTOR
 	return _courses[index];
 }
 
