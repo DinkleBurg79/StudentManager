@@ -12,11 +12,11 @@ class Assignment
 {
 public:
 	// Constructor
-	//Assignment(std::string, float points, float maxPoints, Weight weight);
+	Assignment(std::string, float points, float maxPoints, Weight weight);
 
-	// Perfect forwarding constructor
-	template <typename Name, typename Points, typename Weight>
-	Assignment(Name&& n, Points earned, Points max, Weight w);
+	// Perfect forwarding constructor 
+	//template <typename Name, typename Points, typename Weight>
+	//Assignment(Name&& n, Points earned, Points max, Weight w);
 
 	// Move constructor
 	Assignment(Assignment&& rhs);

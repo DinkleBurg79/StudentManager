@@ -2,14 +2,14 @@
 
 using namespace std;
 
-//Assignment::Assignment(string name, float points, float maxPoints, Weight weight)
-	//: _name(name),
-	//_points(points),
-	//_max_points(maxPoints),
-	//_weight(weight)
-//{
-	//_score = (_points / _max_points) * 100;
-//}
+Assignment::Assignment(string name, float points, float maxPoints, Weight weight)
+	: _name(name),
+	_points(points),
+	_max_points(maxPoints),
+	_weight(weight)
+{
+	_score = (_points / _max_points) * 100;
+}
 
 Assignment::Assignment(Assignment&& rhs)
 	: _name(move(rhs._name)),
@@ -17,7 +17,7 @@ Assignment::Assignment(Assignment&& rhs)
 	_max_points(move(rhs._max_points)),
 	_weight(move(rhs._weight))
 {
-	
+	_score = (_points / _max_points) * 100;
 }
 
 Assignment& Assignment::operator=(Assignment&& rhs)
@@ -27,6 +27,7 @@ Assignment& Assignment::operator=(Assignment&& rhs)
 	_points = move(rhs._points);
 	_max_points = move(rhs._max_points);
 	_weight = move(rhs._weight);
+	_score = (_points / _max_points) * 100;
 	return *this;
 }
 

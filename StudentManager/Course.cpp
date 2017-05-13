@@ -4,18 +4,23 @@ using namespace std;
 
 Course::Course() = default;
 
-Course::Course(string name)
-{
-	_name = name;
-	_grades = GradeBook();
-}
+//Course::Course(string name)
+//{
+	//_name = name;
+	//_grades = GradeBook();
+//}
 
-unique_ptr<Assignment> Course::accessAssignment(int index) 
+unique_ptr<Assignment>& Course::accessAssignment(int index) 
 {
 	// Since vector counts from 0, decrement index value asked
 	index--;
-	// Have to return rvalue unique_ptr (so it can't be reassigned)
-	return move(_grades[index]);
+	// BAD CODE BECAUSE THIS MEANS UPTR WON'T BE IN VECTOR
+	return _grades[index];
+}
+
+vector<unique_ptr<Assignment>>& Course::accessGradeBook()
+{
+	return _grades;
 }
 
 float Course::getFinalGrade() const

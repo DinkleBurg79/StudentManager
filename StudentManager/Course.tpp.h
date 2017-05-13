@@ -3,6 +3,14 @@
 
 using namespace std;
 
+template <typename Name>
+Course::Course(Name&& n)
+	: _name(forward<Name>(n)),
+	_grades(GradeBook())
+{
+	
+}
+
 template <typename Name, typename Points, typename Weight>
 void Course::addAssignment(Name&& n, Points earned, Points max, Weight w)
 {

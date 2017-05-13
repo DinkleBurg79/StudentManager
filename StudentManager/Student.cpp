@@ -54,8 +54,14 @@ string Student::getName() const
 	return _name;
 }
 
-unique_ptr<Course> Student::accessCourse(int index)
+unique_ptr<Course>& Student::accessCourse(int index) 
 {
 	index--;
-	return move(_courses[index]);
+	// BAD CODE BECAUSE THIS MEANS UPTR WON'T BE IN VECTOR
+	return _courses[index];
+}
+
+vector<unique_ptr<Course>>& Student::accessCourses() 
+{
+	return _courses;
 }

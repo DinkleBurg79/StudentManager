@@ -39,10 +39,11 @@ public:
 	template <typename Name>
 	void addCourse(Name&& n);
 
-	// Returns unique_ptr to Course based on index
-	std::unique_ptr<Course> accessCourse(int index);
+	// Returns reference to unique_ptr to Course based on index (uptr can be modified, but ownership doesn't change)
+	std::unique_ptr<Course>& accessCourse(int index);
 
-	VecUPtrCourses _courses;
+	// Returns vector of unique_ptrs to courses 
+	VecUPtrCourses& accessCourses();
 
 private:
 	static int _getNextIdNum();
@@ -51,7 +52,7 @@ private:
 	std::string _name;
 	int _id_num;
 	GradeLevel _grade_level;
-	//VecUPtrCourses _courses;
+	VecUPtrCourses _courses;
 };
 
 #include "Student.tpp.h"

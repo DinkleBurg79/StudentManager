@@ -15,8 +15,9 @@ public:
 	// Default constructor
 	Course();
 
-	// Constructor with name
-	Course(std::string);
+	// Perfect forwarding constructor 
+	template <typename Name>
+	Course(Name&& n);
 
 	// Adds unique_ptr to Assignment in vector
 	template <typename Name, typename Points, typename Weight>
@@ -26,8 +27,11 @@ public:
 	template <typename Name>
 	void deleteAssignment(Name&& n);
 
-	// Access Assignment based on index
-	std::unique_ptr<Assignment> accessAssignment(int index);
+	// Returns reference to unique_ptr to Assignment (uptr can be modified, but ownership doesn't change)
+	std::unique_ptr<Assignment>& accessAssignment(int index);
+
+	// Returns vector of unique_ptrs to assignments
+	GradeBook& accessGradeBook();
 
 	// Returns final grade of the course
 	float getFinalGrade() const;
